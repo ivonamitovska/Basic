@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Basic.Models.Movie>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table id="moviesTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameMovie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameMovie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+
+                <td>
+                    <img style="max-width:200px" src="@item.ImgUrl" style="max-width:90px" />
+                   
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
